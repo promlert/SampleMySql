@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div>
+    <button id="dba" class="btn btn-info">DBA</button>
+    <button id="dbb" class="btn btn-info">DBB</button>
+    <button id="clear" class="btn btn-info">Clear</button>
+</div>
+<div id="content">
+
+</div>
+@section scripts {
+<script>
+    $("#dba").click(function () {
+        $.get("./api/SampleDB/GetPersonDB", function (data, status) {
+              console.info(data);
+                $("#content").html(data);
+          });
+    });
+    $("#dbb").click(function () {
+         $.get("./api/SampleDB/GetPersonDB2", function (data, status) {
+                $("#content").html(data);
+          });
+    });
+        $("#dbb").click(function () {
+            $("#content").html("");
+        });
+</script>
+}

@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  samplemysql:
+    image: ${DOCKER_REGISTRY-}samplemysql
+    build:
+      context: .
+      dockerfile: SampleMySql/Dockerfile
+    networks:
+      - app-network
+networks:
+  app-network:
+    external: true
